@@ -119,7 +119,7 @@ const VillainCard = ({ img, name, movie, quote, current }) => {
                 values="0;100"
                 dur="800ms"
                 repeatCount="1"
-                begin="card.mouseenter"
+                // begin="card.mouseenter"
               />
             </feDisplacementMap>
           </filter>
