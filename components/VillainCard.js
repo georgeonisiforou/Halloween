@@ -77,8 +77,7 @@ const VillainCard = ({ img, name, movie, quote, current }) => {
   const [ios, setIos] = useState(false);
 
   useEffect(() => {
-    const dev = navigator.userAgent.match(/(iPhone|iPad)/);
-    if (dev === true) {
+    if (navigator.userAgent.match(/(iPhone|iPad)/)) {
       setIos(true);
     }
   }, []);
