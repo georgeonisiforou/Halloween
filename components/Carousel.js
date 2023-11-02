@@ -120,9 +120,9 @@ const Carousel = () => {
   }, [current]); // Empty dependency array means this effect runs once on mount and cleanup on unmount
 
   useEffect(() => {
-    if (start - end > 100) {
+    if (start - end > 70) {
       handleNext();
-    } else if (end - start > 100) {
+    } else if (end - start > 70) {
       handlePrev();
     }
   }, [end]);
