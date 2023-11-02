@@ -151,12 +151,12 @@ const Carousel = () => {
         </Next>
 
         <CardContainer
-        // onTouchStart={(e) => {
-        //   setStart(e.changedTouches[0].clientX);
-        // }}
-        // onTouchEnd={(e) => {
-        //   setEnd(e.changedTouches[0].clientX);
-        // }}
+          onTouchStart={(e) => {
+            setStart(e.changedTouches[0].clientX);
+          }}
+          onTouchEnd={(e) => {
+            setEnd(e.changedTouches[0].clientX);
+          }}
         >
           <VillainCard
             key={current}
