@@ -74,6 +74,14 @@ const Quote = styled.div`
 
 const VillainCard = ({ img, name, movie, quote, current }) => {
   const [turbulence, setTurbulence] = useState({ seed: 0, scale: 0 });
+  const [ios, setIos] = useState(false);
+
+  useEffect(() => {
+    const dev = navigator.userAgent.match(/(iPhone|iPad)/);
+    if (dev === true) {
+      setIos(true);
+    }
+  }, []);
 
   useEffect(() => {
     let myInt = setInterval(() => {
@@ -99,32 +107,34 @@ const VillainCard = ({ img, name, movie, quote, current }) => {
       // }}
       img={img}
     >
-      <svg style={{ display: "none" }}>
-        <defs>
-          <filter id="noise">
-            <feTurbulence
-              baseFrequency="0.7,0.8"
-              seed={turbulence.seed}
-              type="fractalNoise"
-              result="static"
-            />
-
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="static"
-              scale={turbulence.scale}
-            >
-              <animate
-                attributeName="seed"
-                values="0;100"
-                dur="800ms"
-                repeatCount="1"
-                // begin="card.mouseenter"
+      {ios === false && (
+        <svg style={{ display: "none" }}>
+          <defs>
+            <filter id="noise">
+              <feTurbulence
+                baseFrequency="0.7,0.8"
+                seed={turbulence.seed}
+                type="fractalNoise"
+                result="static"
               />
-            </feDisplacementMap>
-          </filter>
-        </defs>
-      </svg>
+
+              <feDisplacementMap
+                in="SourceGraphic"
+                in2="static"
+                scale={turbulence.scale}
+              >
+                <animate
+                  attributeName="seed"
+                  values="0;100"
+                  dur="800ms"
+                  repeatCount="1"
+                  // begin="card.mouseenter"
+                />
+              </feDisplacementMap>
+            </filter>
+          </defs>
+        </svg>
+      )}
 
       <TextContainer>
         <Name>{name}</Name>

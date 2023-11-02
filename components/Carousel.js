@@ -100,6 +100,7 @@ const Title = styled.h3`
 const Carousel = () => {
   const [current, setCurrent] = useState(0);
   const [start, setStart] = useState(0);
+
   const [end, setEnd] = useState(0);
   const handleKeyDown = (event) => {
     if (event.keyCode === 37) {
@@ -110,6 +111,7 @@ const Carousel = () => {
       handleNext();
     }
   };
+
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
 
